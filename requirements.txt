@@ -1,0 +1,13 @@
+streamlit==1.39.0
+pillow==10.4.0
+numpy==2.1.1
+opencv-python==4.10.0.84
+matplotlib==3.9.2
+h5py==3.11.0
+scipy==1.13.1
+tqdm==4.66.5
+# For model
+torch
+torchvision
+huggingface_hub==0.24.6
+safetensors==0.4.5
