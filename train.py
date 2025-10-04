@@ -17,9 +17,7 @@ from tqdm import tqdm
 from model import CSRNet
 
 
-# ----------------------------
-# Dataset
-# ----------------------------
+
 class ShanghaiTechDataset(Dataset):
     def __init__(self, root: str, split: str = "train", img_size: Tuple[int, int] = (512, 512)):
         """
@@ -114,9 +112,7 @@ class ShanghaiTechDataset(Dataset):
         return image_t, target_t.unsqueeze(0)  # (1, H, W)
 
 
-# ----------------------------
-# Training Utilities
-# ----------------------------
+
 class CrowdCountingLoss(nn.Module):
     def __init__(self):
         super().__init__()
@@ -136,10 +132,6 @@ def mae_rmse(pred: torch.Tensor, target: torch.Tensor) -> Tuple[float, float]:
     rmse = torch.sqrt(torch.mean((pred_c - tgt_c) ** 2)).item()
     return mae, rmse
 
-
-# ----------------------------
-# Train Loop
-# ----------------------------
 
 def train(args):
     device = torch.device('cuda' if torch.cuda.is_available() and args.use_gpu else 'cpu')
